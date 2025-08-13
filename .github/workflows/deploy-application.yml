@@ -16,7 +16,7 @@ on:
 env:
   AZURE_RESOURCE_GROUP: 'rg-codingagentdemo-${{ github.event.inputs.environment }}'
   ENVIRONMENT: '${{ github.event.inputs.environment }}'
-  DOTNET_VERSION: '6.0.x'
+  DOTNET_VERSION: '8.0.x'
 
 jobs:
   build-and-deploy:

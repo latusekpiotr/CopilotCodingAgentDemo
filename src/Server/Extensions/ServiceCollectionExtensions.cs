@@ -212,10 +212,22 @@ namespace BlazorHero.CleanArchitecture.Server.Extensions
         internal static IServiceCollection AddDatabase(
             this IServiceCollection services,
             IConfiguration configuration)
-            => services
-                .AddDbContext<BlazorHeroContext>(options => options
-                    .UseSqlServer(configuration.GetConnectionString("DefaultConnection")))
-            .AddTransient<IDatabaseSeeder, DatabaseSeeder>();
+        {
+            var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
+            
+            if (environment == "Development")
+            {
+                services.AddDbContext<BlazorHeroContext>(options => options
+                    .UseInMemoryDatabase("BlazorHeroInMemoryDb"));
+            }
+            else
+            {
+                services.AddDbContext<BlazorHeroContext>(options => options
+                    .UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            }
+            
+            return services.AddTransient<IDatabaseSeeder, DatabaseSeeder>();
+        }
 
         internal static IServiceCollection AddCurrentUserService(this IServiceCollection services)
         {

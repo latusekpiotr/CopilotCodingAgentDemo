@@ -55,6 +55,14 @@ resource appService 'Microsoft.Web/sites@2023-01-01' = {
           name: 'WEBSITE_RUN_FROM_PACKAGE'
           value: '1'
         }
+        {
+          name: 'ASPNETCORE_URLS'
+          value: 'http://+:80'
+        }
+        {
+          name: 'ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS'
+          value: 'true'
+        }
       ]
     }
     httpsOnly: true
