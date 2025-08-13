@@ -16,7 +16,7 @@ on:
 env:
   AZURE_RESOURCE_GROUP: 'rg-codingagentdemo-${{ github.event.inputs.environment }}'
   ENVIRONMENT: '${{ github.event.inputs.environment }}'
-  DOTNET_VERSION: '6.0.x'
+  DOTNET_VERSION: '8.0.x'
 
 jobs:
   build-and-deploy:
@@ -113,10 +113,10 @@ jobs:
     - name: Verify deployment
       run: |
         echo "🔍 Verifying deployment..."
-        response=$(curl -s -o /dev/null -w "%{http_code}" ${{ steps.get_url.outputs.app-url }}/health || echo "000")
+        response=$(curl -s -o /dev/null -w "%{http_code}" ${{ steps.get_url.outputs.app-url }} || echo "000")
         
         if [ "$response" == "200" ]; then
-          echo "✅ Health check passed!"
+          echo "✅ Application health check passed!"
         else
           echo "⚠️  Health check returned status: $response"
           echo "The application may still be starting up. Please check manually."

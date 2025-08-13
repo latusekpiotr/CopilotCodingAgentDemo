@@ -28,6 +28,11 @@ namespace BlazorHero.CleanArchitecture.Server
                     {
                         context.Database.Migrate();
                     }
+                    else if (context.Database.IsInMemory())
+                    {
+                        // For in-memory database, ensure the database is created
+                        context.Database.EnsureCreated();
+                    }
                 }
                 catch (Exception ex)
                 {
