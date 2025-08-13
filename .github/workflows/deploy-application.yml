@@ -17,7 +17,6 @@ env:
   AZURE_RESOURCE_GROUP: 'rg-todolist-${{ github.event.inputs.environment }}'
   ENVIRONMENT: '${{ github.event.inputs.environment }}'
   DOTNET_VERSION: '8.0.x'
-  NODE_VERSION: '20.x'
 
 jobs:
   build-and-deploy:
@@ -32,24 +31,17 @@ jobs:
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ env.NODE_VERSION }}
-        cache: 'npm'
-        cache-dependency-path: './todolist-frontend/package-lock.json'
-
     - name: Restore .NET dependencies
-      run: dotnet restore ToDoList.Backend.sln
+      run: dotnet restore BlazorHero.CleanArchitecture.sln
 
-    - name: Build .NET Backend
-      run: dotnet build ToDoList.Backend.sln --configuration Release --no-restore
+    - name: Build
+      run: dotnet build BlazorHero.CleanArchitecture.sln --configuration Release --no-restore
 
-    - name: Publish .NET Backend
+    - name: Publish
       run: |
-        dotnet publish ToDoList.Backend/ToDoList.Backend.csproj \
+        dotnet publish BlazorHero.CleanArchitecture.sln \
           --configuration Release \
-          --output ./backend-publish \
+          --output ./publish \
           --no-build
 
     - name: Azure Login
@@ -74,30 +66,14 @@ jobs:
         echo "app-name=$app_name" >> $GITHUB_OUTPUT
         echo "✅ Found App Service: $app_name"
 
-    - name: Install Frontend dependencies
-      working-directory: ./todolist-frontend
-      run: npm ci
-
-    - name: Build Frontend
-      working-directory: ./todolist-frontend
-      run: |
-        # Set the correct API URL for Azure deployment - no /api prefix needed
-        export REACT_APP_API_URL="https://${{ steps.get_app_name.outputs.app-name }}.azurewebsites.net"
-        echo "Building frontend with API URL: $REACT_APP_API_URL"
-        npm run build
-
     - name: Prepare deployment package
       run: |
         # Create deployment directory
         mkdir -p ./deployment-package
         
         # Copy backend files
-        cp -r ./backend-publish/* ./deployment-package/
-        
-        # Copy frontend build to wwwroot (served as static files by .NET)
-        mkdir -p ./deployment-package/wwwroot
-        cp -r ./todolist-frontend/build/* ./deployment-package/wwwroot/
-        
+        cp -r ./publish/* ./deployment-package/
+                
         # Create deployment zip
         cd ./deployment-package
         zip -r ../deployment.zip .
