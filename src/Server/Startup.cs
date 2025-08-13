@@ -54,14 +54,17 @@ namespace BlazorHero.CleanArchitecture.Server
             services.RegisterSwagger();
             services.AddInfrastructureMappings();
             var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
+            var connectionString = _configuration.GetConnectionString("DefaultConnection");
             
-            if (environment == "Development")
+            if (environment == "Development" || 
+                string.IsNullOrEmpty(connectionString) || 
+                connectionString.Contains("(localdb)", StringComparison.OrdinalIgnoreCase))
             {
                 services.AddHangfire(x => x.UseInMemoryStorage());
             }
             else
             {
-                services.AddHangfire(x => x.UseSqlServerStorage(_configuration.GetConnectionString("DefaultConnection")));
+                services.AddHangfire(x => x.UseSqlServerStorage(connectionString));
             }
             services.AddHangfireServer();
             services.AddControllers().AddValidators();

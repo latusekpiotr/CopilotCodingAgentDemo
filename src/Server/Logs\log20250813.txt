@@ -17,3 +17,12 @@
 2025-08-13 22:21:27.276 +00:00 [INF] Application started. Press Ctrl+C to shut down.
 2025-08-13 22:21:27.277 +00:00 [INF] Hosting environment: Development
 2025-08-13 22:21:27.277 +00:00 [INF] Content root path: /home/runner/work/CopilotCodingAgentDemo/CopilotCodingAgentDemo/src/Server
+2025-08-13 22:24:33.643 +00:00 [INF] Seeded Administrator Role.
+2025-08-13 22:24:33.926 +00:00 [INF] Seeded Default SuperAdmin User.
+2025-08-13 22:24:34.041 +00:00 [INF] Seeded Basic Role.
+2025-08-13 22:24:34.132 +00:00 [INF] Seeded User with Basic Role.
+2025-08-13 22:24:34.343 +00:00 [INF] Now listening on: https://localhost:5001
+2025-08-13 22:24:34.346 +00:00 [INF] Now listening on: http://localhost:5000
+2025-08-13 22:24:34.349 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-13 22:24:34.349 +00:00 [INF] Hosting environment: Development
+2025-08-13 22:24:34.349 +00:00 [INF] Content root path: /home/runner/work/CopilotCodingAgentDemo/CopilotCodingAgentDemo/src/Server
