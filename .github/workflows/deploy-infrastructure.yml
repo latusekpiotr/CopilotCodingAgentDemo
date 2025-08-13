@@ -24,7 +24,7 @@ on:
           - Central US
 
 env:
-  AZURE_RESOURCE_GROUP: 'rg-todolist-${{ github.event.inputs.environment }}'
+  AZURE_RESOURCE_GROUP: 'rg-codingagentdemo-${{ github.event.inputs.environment }}'
   LOCATION: '${{ github.event.inputs.location }}'
   ENVIRONMENT: '${{ github.event.inputs.environment }}'
 
@@ -46,7 +46,7 @@ jobs:
         az group create \
           --name ${{ env.AZURE_RESOURCE_GROUP }} \
           --location "${{ env.LOCATION }}" \
-          --tags Environment=${{ env.ENVIRONMENT }} Project=TodoList
+          --tags Environment=${{ env.ENVIRONMENT }} Project=CopilotCodingAgentDemo
 
     - name: Deploy Bicep template
       id: deploy
