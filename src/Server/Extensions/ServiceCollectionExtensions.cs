@@ -215,6 +215,7 @@ namespace BlazorHero.CleanArchitecture.Server.Extensions
         {
             var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
             
+            // Use InMemory database for Development environment
             if (environment == "Development")
             {
                 services.AddDbContext<BlazorHeroContext>(options => options
@@ -222,8 +223,23 @@ namespace BlazorHero.CleanArchitecture.Server.Extensions
             }
             else
             {
-                services.AddDbContext<BlazorHeroContext>(options => options
-                    .UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+                var connectionString = configuration.GetConnectionString("DefaultConnection");
+                
+                // Use InMemory database if:
+                // 1. No connection string is provided, or
+                // 2. Connection string points to LocalDB (which doesn't work in Azure/Linux)
+                if (string.IsNullOrEmpty(connectionString) || 
+                    connectionString.Contains("(localdb)", StringComparison.OrdinalIgnoreCase))
+                {
+                    // Fallback to InMemory database for Azure dev environment or when LocalDB is configured
+                    services.AddDbContext<BlazorHeroContext>(options => options
+                        .UseInMemoryDatabase("BlazorHeroInMemoryDb"));
+                }
+                else
+                {
+                    services.AddDbContext<BlazorHeroContext>(options => options
+                        .UseSqlServer(connectionString));
+                }
             }
             
             return services.AddTransient<IDatabaseSeeder, DatabaseSeeder>();

@@ -39,7 +39,7 @@ jobs:
 
     - name: Publish
       run: |
-        dotnet publish BlazorHero.CleanArchitecture.sln \
+        dotnet publish src/Server/Server.csproj \
           --configuration Release \
           --output ./publish \
           --no-build
