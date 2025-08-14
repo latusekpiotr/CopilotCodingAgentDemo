@@ -1,0 +1,27 @@
+2025-08-14 09:56:52.219 +00:00 [INF] Seeded Administrator Role.
+2025-08-14 09:56:52.493 +00:00 [INF] Seeded Default SuperAdmin User.
+2025-08-14 09:56:52.607 +00:00 [INF] Seeded Basic Role.
+2025-08-14 09:56:52.683 +00:00 [INF] Seeded User with Basic Role.
+2025-08-14 09:56:52.939 +00:00 [INF] Now listening on: https://localhost:5001
+2025-08-14 09:56:52.943 +00:00 [INF] Now listening on: http://localhost:5000
+2025-08-14 09:56:52.945 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-14 09:56:52.945 +00:00 [INF] Hosting environment: Development
+2025-08-14 09:56:52.945 +00:00 [INF] Content root path: /home/runner/work/CopilotCodingAgentDemo/CopilotCodingAgentDemo/src/Server
+2025-08-14 10:01:34.507 +00:00 [INF] Seeded Administrator Role.
+2025-08-14 10:01:34.770 +00:00 [INF] Seeded Default SuperAdmin User.
+2025-08-14 10:01:34.887 +00:00 [INF] Seeded Basic Role.
+2025-08-14 10:01:34.962 +00:00 [INF] Seeded User with Basic Role.
+2025-08-14 10:01:35.174 +00:00 [INF] Now listening on: https://localhost:5001
+2025-08-14 10:01:35.176 +00:00 [INF] Now listening on: http://localhost:5000
+2025-08-14 10:01:35.178 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-14 10:01:35.178 +00:00 [INF] Hosting environment: Development
+2025-08-14 10:01:35.179 +00:00 [INF] Content root path: /home/runner/work/CopilotCodingAgentDemo/CopilotCodingAgentDemo/src/Server
+2025-08-14 10:03:53.540 +00:00 [INF] Seeded Administrator Role.
+2025-08-14 10:03:53.830 +00:00 [INF] Seeded Default SuperAdmin User.
+2025-08-14 10:03:53.947 +00:00 [INF] Seeded Basic Role.
+2025-08-14 10:03:54.023 +00:00 [INF] Seeded User with Basic Role.
+2025-08-14 10:03:54.228 +00:00 [INF] Now listening on: https://localhost:5001
+2025-08-14 10:03:54.231 +00:00 [INF] Now listening on: http://localhost:5000
+2025-08-14 10:03:54.233 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-14 10:03:54.233 +00:00 [INF] Hosting environment: Development
+2025-08-14 10:03:54.233 +00:00 [INF] Content root path: /home/runner/work/CopilotCodingAgentDemo/CopilotCodingAgentDemo/src/Server

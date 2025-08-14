@@ -60,6 +60,7 @@ namespace BlazorHero.CleanArchitecture.Infrastructure
                 //Check if User Exists
                 var superUser = new BlazorHeroUser
                 {
+                    Id = "400b84d8-1f5e-4d91-b8c0-7b3f8c5a2e1d", // Fixed ID for consistent seeding
                     FirstName = "Mukesh",
                     LastName = "Murugan",
                     Email = "mukesh@blazorhero.com",
@@ -108,6 +109,7 @@ namespace BlazorHero.CleanArchitecture.Infrastructure
                 //Check if User Exists
                 var basicUser = new BlazorHeroUser
                 {
+                    Id = "500b84d8-1f5e-4d91-b8c0-7b3f8c5a2e1d", // Fixed ID for consistent seeding
                     FirstName = "John",
                     LastName = "Doe",
                     Email = "john@blazorhero.com",
