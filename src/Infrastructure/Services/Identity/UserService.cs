@@ -134,6 +134,10 @@ namespace BlazorHero.CleanArchitecture.Infrastructure.Services.Identity
         public async Task<IResult<UserResponse>> GetAsync(string userId)
         {
             var user = await _userManager.Users.Where(u => u.Id == userId).FirstOrDefaultAsync();
+            if (user == null)
+            {
+                return await Result<UserResponse>.FailAsync(_localizer["User Not Found."]);
+            }
             var result = _mapper.Map<UserResponse>(user);
             return await Result<UserResponse>.SuccessAsync(result);
         }
