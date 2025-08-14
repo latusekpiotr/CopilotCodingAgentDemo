@@ -1,0 +1,9 @@
+2025-08-14 06:30:53.414 +00:00 [INF] Seeded Administrator Role.
+2025-08-14 06:30:53.683 +00:00 [INF] Seeded Default SuperAdmin User.
+2025-08-14 06:30:53.795 +00:00 [INF] Seeded Basic Role.
+2025-08-14 06:30:53.870 +00:00 [INF] Seeded User with Basic Role.
+2025-08-14 06:30:54.140 +00:00 [INF] Now listening on: https://localhost:5001
+2025-08-14 06:30:54.142 +00:00 [INF] Now listening on: http://localhost:5000
+2025-08-14 06:30:54.144 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-14 06:30:54.145 +00:00 [INF] Hosting environment: Development
+2025-08-14 06:30:54.145 +00:00 [INF] Content root path: /home/runner/work/CopilotCodingAgentDemo/CopilotCodingAgentDemo/src/Server
