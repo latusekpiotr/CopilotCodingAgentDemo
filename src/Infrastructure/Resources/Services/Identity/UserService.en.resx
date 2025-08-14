@@ -204,6 +204,9 @@
   <data name="UserName" xml:space="preserve">
     <value>Username</value>
   </data>
+  <data name="User Not Found." xml:space="preserve">
+    <value>User Not Found.</value>
+  </data>
   <data name="Username {0} is already taken." xml:space="preserve">
     <value>Username {0} is already taken.</value>
   </data>
